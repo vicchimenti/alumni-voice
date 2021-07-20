@@ -1,14 +1,14 @@
   /***
    *     @author Victor Chimenti, MSCS-SE '20
-   *     @file v9-organizer-blogwithimage.js
-   *     v9/organizer/blogwithimage
+   *     @file v9-organizer-alumniVoice.js
+   *     v9/organizer/alumniVoice
    *
    *     This content type will work in conjunction with the Organizer and each item
    *     will contain one article.
    *
    *     Document will write once when the page loads
    *
-   *     @version 4.93
+   *     @version 5.0
    */
 
 
