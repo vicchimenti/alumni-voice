@@ -1,1 +1,1 @@
-# alumni-voice
+# SU Alumni Voice blog
