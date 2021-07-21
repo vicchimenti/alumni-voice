@@ -4,6 +4,10 @@ div.newsroomArticle.tags span {
     line-height: 2;
 }
 
+.alumniVoice .standardContent ul {
+    margin-left: 0;
+}
+
 .alumniVoice div.newsroomArticle.tags {
     display: inline-flex;
 }
