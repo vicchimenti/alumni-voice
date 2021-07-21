@@ -5,7 +5,7 @@
    *
    *     Document will write once when the page loads
    *
-   *     @version 6.1
+   *     @version 6.2
    */
 
 
@@ -149,6 +149,7 @@
       document.write(openPublishWrapper);
       document.write(externalLinkString);
       document.write(dateString);
+      document.write(listOfTags);
       document.write(closePublishWrapper);
       document.write(articleFullBody);
       document.write(closeBodyWrapper);
