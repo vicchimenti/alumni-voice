@@ -1,0 +1,27 @@
+div.newsroomArticle.tags span {
+    color: #333333;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+.alumniVoice div.newsroomArticle.tags {
+    display: inline-flex;
+}
+
+.alumniVoice .standardContent ul {
+    margin-bottom: 0;
+}
+
+.alumniVoice .standardContent ul li {
+    background: none;
+    border: none;
+    color: #aa0000;
+    display: inline-block !important;
+    font-size: 1.6rem;
+    margin-right: 5px;
+    padding: 1px 10px;
+}
+
+.alumniVoice .standardContent ul li:before {
+    content: unset;
+}
