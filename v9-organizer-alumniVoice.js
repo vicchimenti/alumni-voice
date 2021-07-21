@@ -8,7 +8,7 @@
    *
    *     Document will write once when the page loads
    *
-   *     @version 5.2
+   *     @version 5.4
    */
 
 
@@ -103,7 +103,7 @@
         }
 
         // Print any tags that were selected
-        listOfTags = '<div class="newsroomArticle tags"><strong class="card-text articleLabel">Ignatian Pedagogy Element: </strong><ul class="categories">' + listItems + '</ul></div>';
+        listOfTags = '<div class="newsroomArticle tags"><span class="card-text articleLabel"><ul class="categories">' + listItems + '</ul></span></div>';
     }
 
 
