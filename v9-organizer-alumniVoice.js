@@ -8,7 +8,7 @@
    *
    *     Document will write once when the page loads
    *
-   *     @version 5.1
+   *     @version 5.2
    */
 
 
@@ -28,6 +28,7 @@
       var articleImageAlt = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='media' name='Image' attribute='description' />");
       var externalLink = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Link To' output='linkurl' modifiers='nav_sections' />");
       var externalLinkText = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Link To' output='linktext' modifiers='nav_sections' />");
+      var topics = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Topics' output='normal' display_field='value' />");
       var articleFullBody = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Article Body' output='normal' display_field='value' />");
       var fullTextLink = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Name' output='fulltext' use-element='true' filename-element='Article Title' modifiers='striptags,htmlentities' />");
       var contentID = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='meta' meta='content_id' />");
@@ -59,33 +60,49 @@
 
 
 
-      /***
-       *  check for fulltext content
-       * 
-       * */
-      if (articleFullBody != "") {
-          titleLink = '<h3><a href="' + fullTextLink + '" title="Read the full post ' + articleTitle + '">' + articleTitle + '</a></h3>';
-          readMoreString = '<p class="readmore"><a href="' + fullTextLink + '" title="Read the full post ' + articleTitle + '">Read More <span class="sr-only sr-only-focusable">about ' + articleTitle + '</span></a></p>';
-      }
+    /***
+     *  check for fulltext content
+     * 
+     * */
+    if (articleFullBody != "") {
+        titleLink = '<h3><a href="' + fullTextLink + '" title="Read the full post ' + articleTitle + '">' + articleTitle + '</a></h3>';
+        readMoreString = '<p class="readmore"><a href="' + fullTextLink + '" title="Read the full post ' + articleTitle + '">Read More <span class="sr-only sr-only-focusable">about ' + articleTitle + '</span></a></p>';
+    }
 
 
-      /***
-       *  Parse for external link
-       * 
-       * */
-      if (externalLink != "" && externalLinkText != "") {
-          externalLinkString = '<span class="externalLink"><a href="' + externalLink + '" title="' + externalLinkText + '" target="_blank"><em>' + externalLinkText + '</em></a></span>';
-      }
+    /***
+     *  Parse for external link
+     * 
+     * */
+    if (externalLink != "" && externalLinkText != "") {
+        externalLinkString = '<span class="externalLink"><a href="' + externalLink + '" title="' + externalLinkText + '" target="_blank"><em>' + externalLinkText + '</em></a></span>';
+    }
 
 
-      /***
-       *  Parse for image
-       * 
-       * */
-      if (articleImage != "") {
-          openImageWrapper = '<div class="col-md-4">';
-          imageString = '<img src="' + articleImage + '" class="articleImage card-img" alt="' + articleImageAlt + '" />';
-      }
+    /***
+     *  Parse for image
+     * 
+     * */
+    if (articleImage != "") {
+        openImageWrapper = '<div class="col-md-4">';
+        imageString = '<img src="' + articleImage + '" class="articleImage card-img" alt="' + articleImageAlt + '" />';
+    }
+
+
+    /***
+     *  parse the list of tags, add <li> tags
+     * 
+     * */
+    if (topics != "") {
+        var arrayOfTags = topics.split(',');
+        for (let i = 0; i < arrayOfTags.length; i++) {
+            let currentItem = arrayOfTags[i].trim();
+            listItems += '<li class="tag">' + currentItem + '</li>';
+        }
+
+        // Print any tags that were selected
+        listOfTags = '<div class="newsroomArticle tags"><strong class="card-text articleLabel">Ignatian Pedagogy Element: </strong><ul class="categories">' + listItems + '</ul></div>';
+    }
 
 
 
@@ -105,6 +122,7 @@
       document.write(externalLinkString);
       document.write(summaryString);
       document.write(dateString);
+      document.write(listOfTags);
       document.write(readMoreString);
       document.write(closeSummaryWrapper);
       document.write(closeBodyWrapper);
