@@ -27,6 +27,7 @@
       var articleImageAlt = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='media' name='Image' attribute='description' />");
       var externalLink = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Link To' output='linkurl' modifiers='nav_sections' />");
       var externalLinkText = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Link To' output='linktext' modifiers='nav_sections' />");
+      var topics = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Topics' output='normal' display_field='value' />");
       var articleFullBody = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Article Body' output='normal' display_field='value' />");
       var contentID = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='meta' meta='content_id' />");
       var anchorTag = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='meta' meta='html_anchor' />");
@@ -52,6 +53,8 @@
       var articlePhotoCreditString = '<p class="card-text articlePhotoCredit credits hidden visually-hidden">No Photographer Provided</p>';
       var imageString = '<img class="hidden visually-hidden" />';
       var dateString = '<p class="publishDate card-text"><small>' + publishDate + '</small></p>';
+      var listOfTags = '<div class="newsroomArticle tags hidden visually-hidden"><ul></ul></div>';
+      var listItems = '';
       var externalLinkString = '<p class="externalLink hidden">No Proper Link Provided</p>';
 
 
@@ -107,6 +110,24 @@
       if (articlePhotoCredit != "") {
           articlePhotoCreditString = '<p class="card-text articlePhotoCredit credits">Photography by ' + articlePhotoCredit + '</p>';
       }
+
+
+
+
+    /***
+     *  parse the list of tags, add <li> tags
+     * 
+     * */
+    if (topics != "") {
+        var arrayOfTags = topics.split(',');
+        for (let i = 0; i < arrayOfTags.length; i++) {
+            let currentItem = arrayOfTags[i].trim();
+            listItems += '<li class="tag">' + currentItem + '</li>';
+        }
+
+        // Print any tags that were selected
+        listOfTags = '<div class="newsroomArticle tags"><span class="card-text articleLabel"><ul class="categories">' + listItems + '</ul></span></div>';
+    }
 
 
 
