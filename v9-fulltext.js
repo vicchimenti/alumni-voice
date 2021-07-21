@@ -39,7 +39,7 @@
        *  default initializations
        * 
        * */
-      var beginningHTML = '<div class="newsArticleWrapper contentItem card border-0" id="id' + contentID + '" aria-label="' + articleTitle + '" data-position-default="ZoneA" data-position-selected="ZoneA"><div class="article standardContent">';
+      var beginningHTML = '<div class="newsArticleWrapper contentItem alumniVoice card border-0" id="id' + contentID + '" aria-label="' + articleTitle + '" data-position-default="ZoneA" data-position-selected="ZoneA"><div class="article standardContent">';
       var endingHTML = '</div></div>';
       var titleLink = '<div class="card-header border-0"><h1 id="pageTitle">' + articleTitle + '</h1></div>';
       var openBodyWrapper = '<div class="articleBody card-body border-0">';
