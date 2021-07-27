@@ -1,18 +1,15 @@
 <!--
-*   @author Victor Chimenti, MSCS-SE 2020
+*   @author Victor Chimenti, MSCS
 *   @file filter-fields.html
-*   @see UCOR, UNIVERSITY CORE CURRICULUM, https://www.seattleu.edu/core/for-students/courses/
-*   as an example of how this application will function
-*   This URI will change after launch depending on host department requirements
 *
-*   Course Item Content Type Filter/Search fields
-*   Intended to reduce the number of Courses that render based on user provided parameters
-*   User may filter by keyword input, course type, term, title, section number and year
+*   Voice Blog Content Type Filter/Search fields
+*   Intended to reduce the number of posts that render based on user provided parameters
+*   User may filter by keyword input and topic
 -->
 
-<form action="#" id="courseFilter">
+<form action="#" id="voiceFilter">
     <!-- Search Field -->
-    <fieldset for="courseFilter">
+    <fieldset for="voiceFilter">
 
 
         <!-- Keyword Search Input -->
@@ -26,9 +23,9 @@
 
         <!-- Search By Prefix -->
         <div class="col-xs-12 input input-wrap">
-            <legend for="SelectBox-ByPrefix">Voice Topics</legend>
+            <legend for="SelectBox-ByTopic">Voice Topics</legend>
             <div class="select-input">
-                <select name="SelectBox-ByPrefix" id="SelectBox-ByPrefix">
+                <select name="SelectBox-ByTopic" id="SelectBox-ByTopic">
                     <option value="" selected>Select a Topic...</option>
                 </select>
             </div>
