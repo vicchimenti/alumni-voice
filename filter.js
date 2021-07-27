@@ -78,11 +78,23 @@ $(function () {
                 $('#SelectBox-ByTopic').change(function () {
                     // Assign Search Key
                     let typeKey = $(this).val();
+                    console.log("typeKey: " + typeKey);
+                    let newKey = typeKey.replace(/\s*\(.*?\)\s*/g, '');
+                    console.log("newKey: " + newKey);
+
+
                     // If Search Key is Not Null then Compare to the Type List Items in Each Content Item
                     if (typeKey) {
                         // search tags in each item
                         $('ul.categories').filter(function (i, e) {
                             var typeValue = $(this).text();
+                            console.log("typeValue: " + typeValue);
+
+                            let newValue = typeValue.replace(/\s*\(.*?\)\s*/g, '');
+
+                            console.log("newValue: " + newValue);
+
+
                             // Check to see if the Key and Value are a Match
                             if (typeValue.match(typeKey)) {
                                 $(this).parents('.alumniVoice').removeClass('hideByDropdownCategories');
