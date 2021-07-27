@@ -37,7 +37,7 @@ $(function () {
             $(function () {
                 let parseItemsToDisplay = function() {
                     // assign array of currently visible content items
-                    visibleItems = $('.profileItem').not('.hideByDropdownCategories, hideByText');
+                    visibleItems = $('.alumniVoice').not('.hideByDropdownCategories, hideByText');
                     // check to see if array is empty
                     if (visibleItems.length == 0) {
                         // when array is empty show the results message
@@ -61,7 +61,7 @@ $(function () {
                     let keyword = $(this).val().toLowerCase();
                     // filter the items for the input key
                     $(function () {
-                        $('.profileItem').filter(function () {
+                        $('.alumniVoice').filter(function () {
                             // when the search key is not present in the item then hide the item
                             $(this).toggleClass('hideByText', !($(this).text().toLowerCase().indexOf(keyword) > -1));
                         });
@@ -87,14 +87,14 @@ $(function () {
                             var typeValue = $(this).text();
                             // Check to see if the Key and Value are a Match
                             if (typeValue.match(typeKey)) {
-                                $(this).parents('.profileItem').removeClass('hideByDropdownCategories');
+                                $(this).parents('.alumniVoice').removeClass('hideByDropdownCategories');
                             } else {
-                                $(this).parents('.profileItem').addClass('hideByDropdownCategories');
+                                $(this).parents('.alumniVoice').addClass('hideByDropdownCategories');
                             }
                         });
                         // Else the Search Key is Null so Reset all Content Items to Visible
                     } else {
-                        $('.profileItem').removeClass('hideByDropdownCategories');
+                        $('.alumniVoice').removeClass('hideByDropdownCategories');
                     }
                     // parse out unselected content items and limit display to user selected items
                     parseItems.process();
