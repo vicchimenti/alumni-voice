@@ -4,7 +4,7 @@
 *   @file filter.js
 *
 *   jQuery
-*   This script searches the Newsroom Experts Application content items for matches to the
+*   This script searches the Alumni SU Voice blog application content items for matches to the
 *   user selected search parameters in the filter field dropdown menu
 *
 *   @version 4.2
@@ -78,24 +78,16 @@ $(function () {
                 $('#SelectBox-ByTopic').change(function () {
                     // Assign Search Key
                     let typeKey = $(this).val();
-                    console.log("typeKey: " + typeKey);
+                    // Account for values with parenthesis
                     let newKey = typeKey.replace(/\s*\(.*?\)\s*/g, '');
-                    console.log("newKey: " + newKey);
-
-
                     // If Search Key is Not Null then Compare to the Type List Items in Each Content Item
                     if (newKey) {
                         // search tags in each item
                         $('ul.categories').filter(function (i, e) {
                             let typeValue = $(this).text();
-                            console.log("typeValue: " + typeValue);
-
+                            // Account for values with parenthesis
                             let newValue = typeValue.replace(/\s*\(.*?\)\s*/g, '');
-
-                            console.log("newValue: " + newValue);
-
-
-                            // Check to see if the Key and Value are a Match
+                            // Check to see if the Key and Value contain a Match
                             if (newValue.match(newKey)) {
                                 $(this).parents('.alumniVoice').removeClass('hideByDropdownCategories');
                             } else {
