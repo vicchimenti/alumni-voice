@@ -9,6 +9,10 @@
     padding: 0;
 }
 
+#filterFieldWrapper #voiceFilter legend{
+    border-bottom: none;
+}
+
 #filterField .row {
     padding-top: 0.5rem;
 }
