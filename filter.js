@@ -96,7 +96,7 @@ $(function () {
 
 
                             // Check to see if the Key and Value are a Match
-                            if (typeValue.match(typeKey)) {
+                            if (newValue.match(newKey)) {
                                 $(this).parents('.alumniVoice').removeClass('hideByDropdownCategories');
                             } else {
                                 $(this).parents('.alumniVoice').addClass('hideByDropdownCategories');
