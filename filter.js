@@ -2,14 +2,12 @@
 /***
 *   @author Victor Chimenti, MSCS-SE '20
 *   @file filter.js
-*   @see https://www.seattleu.edu/newsroom/experts/
-*        Seattle University Newsroom Experts Application
 *
 *   jQuery
 *   This script searches the Newsroom Experts Application content items for matches to the
 *   user selected search parameters in the filter field dropdown menu
 *
-*   @version 4.1
+*   @version 4.2
 */
 
 
