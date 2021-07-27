@@ -84,10 +84,10 @@ $(function () {
 
 
                     // If Search Key is Not Null then Compare to the Type List Items in Each Content Item
-                    if (typeKey) {
+                    if (newKey) {
                         // search tags in each item
-                        $('ul.categories li.tag').filter(function (i, e) {
-                            var typeValue = $(this).text();
+                        $('ul.categories').filter(function (i, e) {
+                            let typeValue = $(this).text();
                             console.log("typeValue: " + typeValue);
 
                             let newValue = typeValue.replace(/\s*\(.*?\)\s*/g, '');
